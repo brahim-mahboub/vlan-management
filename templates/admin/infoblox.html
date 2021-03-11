@@ -1,0 +1,60 @@
+{% extends 'layouts/default.html' %}
+
+{% block body %}
+
+    {% include 'layouts/adminnav.html' %}
+<br/>
+    <fieldset>
+        <legend>Les Infoblox</legend>
+<table border=1 width=100% cellspacing=1 cellpadding=1>
+        <tr>
+            <th>id</th>
+            <th>Vlan id</th>
+            <th>ticket_firewall</th>
+            <th>status_firewall</th>
+            <th>ticket_network</th>
+            <th>status_network</th>
+            <th>ticket_esx</th>
+            <th>status_esx</th>
+            <th>ticket_dhcp</th>
+            <th>status_dhcp</th>
+            <th>ticket_infoblox</th>
+            <th>status_infoblox</th>
+            <th>Lift&Shift</th>
+            <th>Obsolence</th>
+            <th>comment</th>
+            <th>Updated date</th>
+            <th>Admin</th>
+            <th>Update</th>
+        </tr>
+        <tr>
+             {% for infoblox in results %}
+            <td>{{infoblox.Infoblox.id }}</td>
+            <td>{{infoblox.VLAN.id}}</td>
+            <td>{{infoblox.Infoblox.ticket_firewall}}</td>
+            <td>{{infoblox.Infoblox.status_firewall}}</td>
+            <td>{{infoblox.Infoblox.ticket_network}}</td>
+            <td>{{infoblox.Infoblox.status_network}}</td>
+            <td>{{infoblox.Infoblox.ticket_esx}}</td>
+            <td>{{infoblox.Infoblox.status_esx}}</td>
+                 <td>{{infoblox.Infoblox.ticket_dhcp}}</td>
+            <td>{{infoblox.Infoblox.status_dhcp}}</td>
+            <td>{{infoblox.Infoblox.ticket_infoblox}}</td>
+            <td>{{infoblox.Infoblox.status_infoblox}}</td>
+            <td>{{infoblox.Infoblox.it}}</td>
+            <td>{{infoblox.Infoblox.ot}}</td>
+            <td>{{infoblox.Infoblox.comment}}</td>
+            <td>{{infoblox.Infoblox.updated_date}}</td>
+            <td>{{infoblox.Infoblox.admin}}</td>
+            <td><a href="/update_infoblox/{{ infoblox.Infoblox.id }}"> Update</a></td>
+
+         </tr>
+                  {% endfor %}
+
+
+</table>
+            </fieldset>
+
+{% endblock %}
+
+

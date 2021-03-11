@@ -1,0 +1,36 @@
+{% extends 'layouts/default.html' %}
+
+{% block body %}
+
+    {% include 'layouts/clientnav.html' %}
+
+<br/>
+    <fieldset>
+        <legend>Liste des VLANS</legend>
+<table border=1 width=100% cellspacing=1 cellpadding=1>
+
+        <tr>
+            <th>State</th>
+            <th>Vlan id:</th>
+            <th>Subnet(CIDR)</th>
+            <th>Subnet Mask</th>
+            <th>Hosts</th>
+            <th>Host range</th>
+            <th>Gateway</th>
+        </tr>
+        <tr>
+            {% for vlan in vlans %}
+            <td>{{vlan.Network.state }}</td>
+             <td>{{vlan.VLAN.id }}</td>
+            <td>{{vlan.Network.subnet}}</td>
+            <td>{{vlan.Network.mask}}</td>
+            <td>{{vlan.Network.hosts}}</td>
+            <td>{{vlan.Network.range}}</td>
+            <td>{{vlan.Network.gateway}}</td>
+         </tr>
+        {% endfor %}
+</table>
+        </fieldset>
+
+</body>
+{% endblock %}

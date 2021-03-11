@@ -1,0 +1,35 @@
+{% extends 'layouts/default.html' %}
+
+{% block body %}
+
+    {% include 'layouts/adminnav.html' %}
+<br/>
+    <fieldset>
+        <legend>Les Networks</legend>
+<table border=1 width=100% cellspacing=1 cellpadding=1>
+
+        <tr>
+            <th>ID</th>
+            <th>State</th>
+            <th>Subnet(CIDR)</th>
+            <th>Subnet Mask</th>
+            <th>Hosts</th>
+            <th>Host range</th>
+            <th>Gateway</th>
+        </tr>
+        <tr>
+            {% for network in networks %}
+                <td>{{network.id }}</td>
+            <td>{{network.state }}</td>
+            <td>{{network.subnet}}</td>
+            <td>{{network.mask}}</td>
+            <td>{{network.hosts}}</td>
+            <td>{{network.range}}</td>
+            <td>{{network.gateway}}</td>
+         </tr>
+        {% endfor %}
+</table>
+            </fieldset>
+
+{% endblock %}
+

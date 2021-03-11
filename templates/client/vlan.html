@@ -1,0 +1,23 @@
+{% extends 'layouts/default.html' %}
+
+{% block body %}
+
+    {% include 'layouts/clientnav.html' %}
+
+    <br/>
+        <fieldset>
+            <legend>Sites</legend>
+                <form action="/mydevice" method="POST">
+                     <label class="label">Les diffèrents VLANS</label>
+                         <select name="vlans">
+                             {% for vlan in vlans %}
+                                  <option value={{ vlan.VLAN.id}}>{{vlan.VLAN.id}}</option>
+                             {% endfor %}
+                         </select>
+                    <button type="submit" class="button is-success">
+                    ok
+                  </button>
+                </form>
+        </fieldset>
+
+{% endblock %}

@@ -1,0 +1,51 @@
+{% extends 'layouts/default.html' %}
+
+{% block body %}
+
+    {% include 'layouts/adminnav.html' %}
+<br/>
+    <fieldset>
+        <legend>Les Infoblox</legend>
+<table border=1 width=100% cellspacing=1 cellpadding=1>
+        <tr>
+
+            <th>Vlan id:</th>
+            <th>id</th>
+            <th>status_firewall</th>
+            <th>statuts_network</th>
+            <th>status_esx</th>
+            <th>status_dhcp</th>
+            <th>status_infoblox</th>
+            <th>comment</th>
+
+            <th></th>
+
+        </tr>
+        <tr>
+            <form action="/update_infoblox/{{infoblox.id}}" method="post">
+                <td>{{id_vlan}}</td>
+                <td>{{infoblox.id }}</td>
+
+                <td><input class="input" type="text" name="firewall" value="{{infoblox.status_firewall}}"></td>
+                <td><input class="input" type="text" name="network" value="{{infoblox.status_network}}"></td>
+                <td><input class="input" type="text" name="esx" value="{{infoblox.status_esx}}"></td>
+            <td><input class="input" type="text" name="dhcp" value="{{infoblox.status_dhcp}}"></td>
+                <td><input class="input" type="text" name="infoblox" value="{{infoblox.status_infoblox}}"></td>
+            <td><input class="input" type="text" name="comment" value="{{infoblox.comment}}"></td>
+
+
+
+
+    <td> <button type="submit" class="button is-success">
+                    submit
+                  </button></td>
+
+</form>
+
+         </tr>
+
+</table>
+            </fieldset>
+
+{% endblock %}
+

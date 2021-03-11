@@ -1,0 +1,29 @@
+{% extends 'layouts/default.html' %}
+
+{% block body %}
+
+    {% include 'layouts/adminnav.html' %}
+
+    <br/>
+    <fieldset>
+        <legend>Ajout de site</legend>
+<form action="/add_site" method="POST">
+    <table>
+        <tr>
+            <td><label class="label">Nom du Site :</label></td>
+            <td><input class="input" type="text" name="name" placeholder="namecity"></td>
+        </tr>
+        <tr>
+            <td><label class="label">Ville :</label></td>
+            <td><input class="input" type="text" name="city" placeholder="content"></td>
+        </tr>
+
+</table>
+     <button type="submit" class="button is-success">
+                    ok
+                  </button>
+
+</form>
+            </fieldset>
+
+{% endblock %}

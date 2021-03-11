@@ -1,0 +1,44 @@
+{% extends 'layouts/default.html' %}
+
+{% block body %}
+
+    {% include 'layouts/clientnav.html' %}
+<br/>
+    <fieldset>
+        <legend>Les Devices</legend>
+<table border=1 width=100% cellspacing=1 cellpadding=1>
+        <tr>
+            <th>id</th>
+            <th>Vlan id:</th>
+            <th>hostname</th>
+            <th>ip_address</th>
+            <th>subnet_mask</th>
+            <th>gateway_ip</th>
+            <th>fqdn</th>
+            <th>function</th>
+            <th>location</th>
+            <th>environment</th>
+            <th>type</th>
+            <th>os</th>
+        </tr>
+        <tr>
+ {% for device in devices %}
+            <td>{{device.Device.id }}</td>
+            <td>{{device.Device.id_vlan}}</td>
+            <td>{{device.Device.hostname}}</td>
+            <td>{{device.Device.ip_address}}</td>
+            <td>{{device.Device.subnet_mask}}</td>
+            <td>{{device.Device.gateway}}</td>
+            <td>{{device.Device.fqdn}}</td>
+            <td>{{device.Device.fucntion}}</td>
+            <td>{{device.Device.location}}</td>
+            <td>{{device.Device.environment}}</td>
+            <td>{{device.Device.type}}</td>
+            <td>{{device.Device.os}}</td>
+         </tr>
+  {% endfor %}
+</table>
+            </fieldset>
+
+{% endblock %}
+

@@ -1,0 +1,69 @@
+{% extends 'layouts/default.html' %}
+
+{% block body %}
+
+    {% include 'layouts/adminnav.html' %}
+
+    <br/>
+    <fieldset>
+        <legend>Ajout de device</legend>
+<form action="/add_device" method="POST">
+    <table>
+        <tr>
+            <td><label class="label">Vlans :</label></td>
+            <td><select name="vlans">
+                {% for vlan in vlans %}
+                    <option value={{ vlan.id}}>{{vlan.id}}</option>
+                {% endfor %}
+            </select></td>
+        </tr>
+        <tr>
+            <td><label class="label">Hostname :</label></td>
+            <td><input class="input" type="text" name="hostname"></td>
+        </tr>
+        <tr>
+            <td><label class="label">Adresse IP :</label></td>
+            <td><input class="input" type="text" name="ip"></td>
+        </tr>
+            <tr>
+            <td><label class="label">Mask :</label></td>
+            <td><input class="input" type="text" name="mask"></td>
+        </tr>
+            <tr>
+            <td><label class="label">Gateway IP:</label></td>
+            <td><input class="input" type="text" name="gateway"></td>
+        </tr>
+        <tr>
+            <td><label class="label">FQDN :</label></td>
+            <td><input class="input" type="text" name="fqdn"></td>
+        </tr>
+        <tr>
+            <td><label class="label">Function :</label></td>
+            <td><input class="input" type="text" name="function"></td>
+        </tr>
+     <tr>
+            <td><label class="label">Location :</label></td>
+            <td><input class="input" type="text" name="location"></td>
+        </tr>
+        <tr>
+            <td><label class="label">Environnement :</label></td>
+            <td><input class="input" type="text" name="env"></td>
+        </tr>
+        <tr>
+            <td><label class="label">Type :</label></td>
+            <td><input class="input" type="text" name="type"></td>
+        </tr>
+        <tr>
+            <td><label class="label">OS :</label></td>
+            <td><input class="input" type="text" name="os"></td>
+        </tr>
+
+</table>
+     <button type="submit" class="button is-success">
+                    ok
+                  </button>
+
+</form>
+            </fieldset>
+
+{% endblock %}

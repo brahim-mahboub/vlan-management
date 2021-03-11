@@ -1,0 +1,43 @@
+{% extends 'layouts/default.html' %}
+
+{% block body %}
+
+    {% include 'layouts/clientnav.html' %}
+
+<br/>
+    <fieldset>
+        <legend>Liste des Requêtes</legend>
+<table border=1 width=100% cellspacing=1 cellpadding=1>
+
+        <tr>
+            <th>ID Request :</th>
+            <th>Site :</th>
+            <th>Location :</th>
+            <th>Hosts :</th>
+            <th>Description :</th>
+            <th>Firewall :</th>
+            <th>ESX :</th>
+            <th>DHCP :</th>
+            <th>Mode :</th>
+            <th>Created date :</th>
+            <th>Requested date :</th>
+        </tr>
+        <tr>
+            {% for data in datas %}
+            <td>{{data.Request.id }}</td>
+                <td>{{data.Site.name }}</td>
+                <td>{{data.Site.city }}</td>
+            <td>{{data.Request.hosts}}</td>
+            <td>{{data.Request.description}}</td>
+            <td>{{data.Request.firewall}}</td>
+            <td>{{data.Request.esx}}</td>
+            <td>{{data.Request.dhcp}}</td>
+            <td>{{data.Request.mode}}</td>
+            <td>{{data.Request.created_date}}</td>
+            <td>{{data.Request.requested_date}}</td>
+         </tr>
+        {% endfor %}
+</table>
+        </fieldset>
+
+{% endblock %}

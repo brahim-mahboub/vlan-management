@@ -1,0 +1,44 @@
+{% extends 'layouts/default.html' %}
+
+{% block body %}
+
+    {% include 'layouts/adminnav.html' %}
+<br/>
+    <fieldset>
+        <legend>Les Devices</legend>
+<table border=1 width=100% cellspacing=1 cellpadding=1>
+        <tr>
+            <th>id</th>
+            <th>Vlan id:</th>
+            <th>hostname</th>
+            <th>ip_address</th>
+            <th>subnet_mask</th>
+            <th>gateway_ip</th>
+            <th>fqdn</th>
+            <th>function</th>
+            <th>location</th>
+            <th>environment</th>
+            <th>type</th>
+            <th>os</th>
+        </tr>
+        <tr>
+ {% for device in devices %}
+            <td>{{device.id }}</td>
+            <td>{{device.id_vlan}}</td>
+            <td>{{device.hostname}}</td>
+            <td>{{device.ip_address}}</td>
+            <td>{{device.subnet_mask}}</td>
+            <td>{{device.gateway}}</td>
+            <td>{{device.fqdn}}</td>
+            <td>{{device.fucntion}}</td>
+            <td>{{device.location}}</td>
+            <td>{{device.environment}}</td>
+            <td>{{device.type}}</td>
+            <td>{{device.os}}</td>
+         </tr>
+  {% endfor %}
+</table>
+            </fieldset>
+
+{% endblock %}
+

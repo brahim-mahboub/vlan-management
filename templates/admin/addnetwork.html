@@ -1,0 +1,50 @@
+{% extends 'layouts/default.html' %}
+
+{% block body %}
+
+    {% include 'layouts/adminnav.html' %}
+
+    <br/>
+    <fieldset>
+        <legend>Ajout de réseau</legend>
+<form action="/add_network" method="POST">
+    <table>
+        <tr>
+            <td> <label class="label">State :</label></td>
+            <td>        <select name="state">
+             <option value="Assigned">Assigned</option>
+             <option value="Reserved">Reserved</option>
+                <option value="Spare">Spare</option>
+
+     </select></td>
+        </tr>
+        <tr>
+            <td><label class="label">Subnet :</label></td>
+            <td><input class="input" type="text" name="subnet" placeholder="subnet"></td>
+        </tr>
+            <tr>
+            <td><label class="label">Mask :</label></td>
+            <td><input class="input" type="text" name="mask" placeholder="mask"></td>
+        </tr>
+        <tr>
+            <td><label class="label">Hosts :</label></td>
+            <td><input class="input" type="number" name="hosts" placeholder="hosts"></td>
+        </tr>
+        <tr>
+            <td><label class="label">Range :</label></td>
+            <td><input class="input" type="text" name="range" placeholder="range"></td>
+        </tr>
+        <tr>
+            <td><label class="label">Gateway :</label></td>
+            <td><input class="input" type="text" name="gateway" placeholder="gateway"></td>
+        </tr>
+
+</table>
+     <button type="submit" class="button is-success">
+                    ok
+                  </button>
+
+</form>
+            </fieldset>
+
+{% endblock %}

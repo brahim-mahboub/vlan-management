@@ -1,0 +1,141 @@
+/* Pour pouvoir utiliser une hauteur (height) ou une hauteur minimale
+   (min-height) sur un bloc, il faut que son parent direct ait lui-même une
+   hauteur déterminée (donc toute valeur de height sauf "auto": hauteur en
+   pixels, em, autres unités...).
+   Si la hauteur du parent est en pourcentage, elle se réfère alors à la
+   hauteur du «grand-père», et ainsi de suite.
+   Pour pouvoir utiliser un "min-height: 100%" sur div#global, il nous faut:
+   - un parent (body) en "height: 100%";
+   - le parent de body également en "height: 100%". */
+html, body {
+    margin:0;
+    padding:0;
+    height:100%;
+}
+
+body{
+    background-color: white;
+    font-family: 'Bahnschrift Regular';
+    background-attachment: fixed;
+    background-size: 100%; 
+    text-align: center;
+}
+
+.logo{
+    width: 100px;
+    height: 70px;
+}
+
+.postTitle {
+    margin-bottom : 0px;
+    font-size: 35px;
+
+}
+
+h1{
+    text-align: center;
+    color:steelblue;
+    opacity: 1;
+    font-size: 70px;
+}
+
+h2, h3{
+    text-align: center;
+    color:steelblue;
+    opacity: 1;
+}
+
+nav ul{ 
+    padding:0px;
+    margin:0px;
+    list-style-type: none;
+    background-color:steelblue;
+    opacity: 1;
+    border-radius: 5px 10px;
+    text-align: left;
+
+}
+
+nav li{
+    display:inline-block;
+    padding:0px;
+    margin:0px;
+    width:130px;
+    height:40px;
+    border-right: 1px solid darkgrey;
+    text-align:center;
+    line-height: 40px;
+}
+
+nav li a{
+    text-decoration: none;
+    color:white;
+    display: block; /* Pour pouvoir cliquer n'importe où*/
+}
+
+nav li :hover{
+    background-color:darkgray;
+}
+
+html {
+    height: 100%;
+    box-sizing: border-box;
+}
+
+html, body {
+    margin:0;
+    padding:0;
+    padding-bottom: 6rem;
+    min-height: 100%;
+    margin: 0;
+    position: relative;
+}
+
+#content{
+    text-align: center;
+    color:steelblue;
+}
+#container {
+    min-height:100%;
+    position:relative;
+}
+
+#header {
+    background:#ff0;
+    padding:10px;
+}
+
+#body {
+    padding:10px;
+    padding-bottom:60px;   
+}
+
+#footer {
+    color:white;
+    position:absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 1rem;
+    width:100%;
+    height:auto;   
+    background:steelblue;
+    text-align: center;
+    opacity: 1;
+    text-align: center;
+}
+#answerTitle {
+    font-size : 100%;
+}
+
+#txtComment {
+    width: 50%;
+}
+
+#decoLink {
+    color: steelblue;
+}
+
+#disconnect {
+    text-align: right;
+}

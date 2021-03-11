@@ -1,0 +1,35 @@
+{% extends 'layouts/default.html' %}
+
+{% block body %}
+
+    {% include 'layouts/adminnav.html' %}
+
+    <br/>
+    <fieldset>
+        <legend>Ajout de VLAN</legend>
+<form action="/add_vlan" method="POST">
+    <table>
+        <tr>
+            <td><label class="label">Numéro de VLAN :</label></td>
+            <td><input class="input" type="number" name="vlan"></td>
+        </tr>
+        <tr>
+            <td><label class="label">Réseaux :</label></td>
+            <td><select name="subnets">
+                {% for network in networks %}
+                    {% if network.state == 'Spare' %}
+                        <option value={{network.subnet}}>{{network.subnet}}</option>
+                    {% endif %}
+                {% endfor %}
+            </select></td>
+        </tr>
+
+</table>
+     <button type="submit" class="button is-success">
+                    ok
+                  </button>
+
+</form>
+            </fieldset>
+
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'layouts/default.html' %}
+
+{% block body %}
+
+    {% include 'layouts/adminnav.html' %}
+<br/>
+    <fieldset>
+        <legend>Mise à jour des VLANS</legend>
+<form action="/update_vlan/{{id_vlan}}" method="post">
+     <select name="subnet">
+        {% for n in network %}
+             <option value={{ n.id}}>{{n.subnet}}</option>
+        {% endfor %}
+
+    </select>
+     <button type="submit" class="button is-success">
+                    submit
+                  </button>
+
+</form>
+            </fieldset>
+
+{% endblock %}

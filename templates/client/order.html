@@ -1,0 +1,99 @@
+{% extends 'layouts/default.html' %}
+
+{% block body %}
+
+    {% include 'layouts/clientnav.html' %}
+
+    <br>
+    <fieldset>
+<form action="/add_request" method="POST">
+
+            <legend>Formulaire de commande</legend>
+
+    <table>
+        <tr>
+            <td> <label class="label">vlan id</label></td>
+            <td><input class="input" type="number" name="vlanId" placeholder="Id of Vlan"></td>
+        </tr>
+        <tr>
+            <td><label class="label">site</label></td>
+            <td>  <select name="sites">
+        {% for s in sites %}
+             <option value={{ s.id}}>{{s.city}}</option>
+        {% endfor %}
+
+    </select></td>
+        </tr>
+        <tr>
+            <td> <label class="label">nombre de hosts</label></td>
+            <td><select name="hosts">
+        {% for n in networks %}
+            {% if n.state == "Spare" %}
+             <option value={{ n.hosts}}>{{n.hosts}}</option>
+            {% endif %}
+        {% endfor %}
+
+    </select></td>
+        </tr>
+        <tr>
+            <td><label class="label">description</label></td>
+            <td><input class="input" type="text" name="description" placeholder="description"></td>
+        </tr>
+        <tr>
+            <td><label class="label">content</label></td>
+            <td><input class="input" type="text" name="content" placeholder="content"></td>
+        </tr>
+        <tr>
+            <td><label class="label">firewall</label></td>
+            <td>        <select name="firewall">
+             <option value="oui">oui</option>
+             <option value="non">non</option>
+
+     </select></td>
+        </tr>
+        <tr>
+            <td> <label class="esx">esx</label></td>
+            <td>        <select name="esx">
+             <option value="oui">oui</option>
+             <option value="non">non</option>
+
+     </select></td>
+        </tr>
+        <tr>
+            <td><label class="label">dhcp</label></td>
+            <td>        <select name="dhcp">
+             <option value="oui">oui</option>
+             <option value="non">non</option>
+
+         </select></td>
+        </tr>
+        <tr>
+            <td><label class="label">mode</label></td>
+            <td>  <select name="mode">
+             <option value="it">Lift&Shift</option>
+             <option value="ot">Obsolence</option>
+
+         </select></td>
+        </tr>
+
+        <tr>
+            <td><label class="label">date</label></td>
+            <td> <input type="date" name="request_date"></td>
+        </tr>
+
+
+
+
+
+
+
+</table>
+     <button type="submit" class="button is-success">
+                    ok
+                  </button>
+
+            </fieldset>
+</form>
+
+
+{% endblock %}

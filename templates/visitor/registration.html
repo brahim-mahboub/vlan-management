@@ -1,0 +1,80 @@
+{% extends 'layouts/default.html' %}
+
+{% block body %}
+
+<script>
+    function isValidInput() {
+
+        var valid = true;
+        var nomValue = document.forms["check"]["lastname"].value;
+        var prenomValue = document.forms["check"]["firstname"].value;
+        var pseudoValue = document.forms["check"]["mail"].value;
+        var mdpValue = document.forms["check"]["password"].value;
+
+        if (nomValue == "") {
+            document.getElementById("nomError").innerHTML = "Veuillez fournir votre nom !";
+            valid = false;
+        }
+
+        if (prenomValue == "") {
+            document.getElementById("prenomError").innerHTML = "Veuillez fournir votre prénom !";
+            valid = false;
+        }
+
+        {% for user in users %}
+
+            var pseudos = '{{ user.mail }}';
+            if (pseudoValue == pseudos) {
+                document.getElementById("pseudoError").innerHTML = "Ce pseudo est déjà pris par un client !";
+                valid = false;
+            }
+        {% endfor %}
+
+        if (pseudoValue == "") {
+            document.getElementById("pseudoError").innerHTML = "Veuillez fournir votre futur pseudo !";
+            valid = false;
+        }
+        if (mdpValue == "") {
+            document.getElementById("mdpError").innerHTML = "Veuillez fournir un mot de passe";
+            valid = false;
+        }
+        return valid;
+    }
+</script>
+
+    {% include 'layouts/nav.html' %}
+
+    <form  name="check" method="post" action="/registration" onsubmit="return isValidInput()">
+        <br/>
+        <fieldset>
+            <legend>Veuillez vous inscrire</legend>
+    <br/>
+
+            <label for="lastname">Nom (*) :</label>
+            <input type="text" id="lastname" name="lastname"/>
+            <p id="nomError" style='color: red; '></p>
+            <br/>
+
+            <label for="firstname">Prénom (*):</label>
+            <input type="text" id="firstname" name="firstname"/>
+            <p id="prenomError" style='color: red; '></p>
+            <br/>
+
+            <label for="mail">Adresse email (*):</label>
+            <input type="text" name="mail" id="mail"/>
+            <p id="pseudoError" style='color: #ff0000; '></p>
+            <br/>
+
+            <label for="password">Mot de passe (*):</label>
+            <input type="password" name="password" id="password"/>
+            <p id="mdpError" style='color: #ff0000; '></p>
+
+            <br/>
+
+            <input type="submit" value="S'inscrire"/>
+        <br/>
+
+        </fieldset>
+    </form>
+
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'layouts/default.html' %}
+
+{% block body %}
+
+    {% include 'layouts/adminnav.html' %}
+
+    <br/>
+        <fieldset>
+            <legend>Sites</legend>
+                <form action="/vlans" method="POST">
+                     <label class="label">Les diffèrents sites</label>
+                         <select name="sites">
+                             {% for site in sites %}
+                                  <option value={{ site.id}}>{{site.city}}</option>
+                             {% endfor %}
+                         </select>
+                    <button type="submit" class="button is-success">
+                    ok
+                  </button>
+                </form>
+        </fieldset>
+
+{% endblock %}
